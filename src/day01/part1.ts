@@ -1,4 +1,3 @@
-// Advent of Code - Day 1, Part 1
 import * as fs from "fs";
 import * as path from "path";
 
