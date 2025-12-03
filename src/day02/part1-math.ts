@@ -24,11 +24,10 @@ function isInvalid(candidate: number): boolean {
 
     term += newNum;
 
-    const left =
-      Number(digits.slice(0, digits.length - i - 1).join("")) *
-      Math.pow(10, i + 1);
+    const left = candidate - term;
 
     const right = term * Math.pow(10, i + 1);
+
     if (right === left) {
       return true;
     }
