@@ -19,7 +19,6 @@ function isIdFunny(id: number): boolean {
 
   // Loop over each character in the id
   for (let j = 0; j < curr.length; j++) {
-
     // The pattern we will test for repetition
     pattern += curr[j];
 
@@ -50,21 +49,9 @@ function isIdFunny(id: number): boolean {
       return true;
     }
   }
-  
+
   // Technically shouldn't be reachable
   return false;
-}
-
-function sumInvalids(low: number, high: number): number {
-  let sum: number = 0;
-
-  for (let i = low; i <= high; i++) {
-    if (isIdFunny(i)) {
-      sum += i;
-    }
-  }
-
-  return sum;
 }
 
 function solve() {
@@ -73,7 +60,11 @@ function solve() {
   let sum: number = 0;
   for (let pair of instructions) {
     const [low, high] = pair;
-    sum += sumInvalids(Number(low), Number(high));
+    for (let i = Number(low); i <= Number(high); i++) {
+      if (isIdFunny(i)) {
+        sum += i;
+      }
+    }
   }
 
   console.log(sum);

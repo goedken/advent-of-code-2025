@@ -15,6 +15,10 @@ function getInstructions(): string[][] {
 function isInvalid(candidate: number): boolean {
   const digits = Array.from(String(candidate));
 
+  if (digits.length % 2 === 0) {
+    return false;
+  }
+
   let term: number = 0;
 
   // Start from the end
@@ -36,32 +40,17 @@ function isInvalid(candidate: number): boolean {
   return false;
 }
 
-function sumInvalids(low: number, high: number): number {
-  let sum: number = 0;
-
-  for (let i = low; i <= high; i++) {
-    const curr = String(i);
-
-    // invalid IDs can't have an odd number of digits
-    if (curr.length % 2 !== 0) {
-      continue;
-    }
-
-    if (isInvalid(i)) {
-      sum += i;
-    }
-  }
-
-  return sum;
-}
-
 function solve() {
   const instructions = getInstructions();
 
   let sum: number = 0;
   for (let pair of instructions) {
     const [low, high] = pair;
-    sum += sumInvalids(Number(low), Number(high));
+    for (let i = Number(low); i <= Number(high); i++) {
+      if (isInvalid(i)) {
+        sum += i;
+      }
+    }
   }
 
   console.log(sum);
