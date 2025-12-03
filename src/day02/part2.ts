@@ -12,7 +12,7 @@ function getInstructions(): string[][] {
   return instructions;
 }
 
-function isIdFunny(id: number): boolean {
+function isInvalid(id: number): boolean {
   const curr = Array.from(String(id));
 
   let pattern: string = "";
@@ -61,7 +61,7 @@ function solve() {
   for (let pair of instructions) {
     const [low, high] = pair;
     for (let i = Number(low); i <= Number(high); i++) {
-      if (isIdFunny(i)) {
+      if (isInvalid(i)) {
         sum += i;
       }
     }
