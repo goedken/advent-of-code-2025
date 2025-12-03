@@ -19,8 +19,9 @@ function isIdFunny(id: number): boolean {
 
   // Loop over each character in the id
   for (let j = 0; j < curr.length; j++) {
-    const char = curr[j];
-    pattern += char;
+
+    // The pattern we will test for repetition
+    pattern += curr[j];
 
     const rest = curr.slice(j + 1, curr.length);
 
