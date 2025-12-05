@@ -66,5 +66,3 @@ function solve() {
 }
 
 solve();
-
-export {};

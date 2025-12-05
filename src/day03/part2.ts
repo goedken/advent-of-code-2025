@@ -54,5 +54,3 @@ function solve() {
 }
 
 solve();
-
-export {};

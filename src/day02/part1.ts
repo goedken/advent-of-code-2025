@@ -43,5 +43,3 @@ function solve() {
 }
 
 solve();
-
-export {};
